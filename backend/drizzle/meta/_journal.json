@@ -8,6 +8,13 @@
       "when": 1783077415061,
       "tag": "0000_hard_glorian",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1783164835230,
+      "tag": "0001_calm_doctor_doom",
+      "breakpoints": true
     }
   ]
 }
