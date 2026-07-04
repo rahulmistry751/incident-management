@@ -31,7 +31,7 @@ export const FiltersToolbar: React.FC<FiltersToolbarProps> = ({
           type="text"
           placeholder="Search incident title, description, or ID…"
           value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
+          onChange={(e) => setSearchQuery(e.target.value.trim())}
           className="w-full pl-9 pr-4 py-2 bg-zinc-50 hover:bg-zinc-100 border border-zinc-200 focus:bg-white focus:border-[#1a56db] rounded-lg text-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/20 transition-all font-semibold"
         />
         {searchQuery && (

@@ -1,6 +1,6 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { IsNotEmpty, IsString, IsEnum, IsOptional, IsUUID, IsInt, Min, Max } from 'class-validator';
-import { Type } from 'class-transformer';
+import { Type, Transform } from 'class-transformer';
 
 export enum IncidentStatus {
   OPEN = 'OPEN',
@@ -18,11 +18,13 @@ export enum IncidentSeverity {
 export class CreateIncidentDto {
   @ApiProperty({ description: 'The title of the incident' })
   @IsString()
+  @Transform(({ value }) => (typeof value === 'string' ? value.trim() : value))
   @IsNotEmpty({ message: 'Title is required' })
   title: string;
 
   @ApiProperty({ description: 'The description of the incident' })
   @IsString()
+  @Transform(({ value }) => (typeof value === 'string' ? value.trim() : value))
   @IsNotEmpty({ message: 'Description is required' })
   description: string;
 
