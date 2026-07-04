@@ -1,0 +1,2 @@
+export const AI_PROVIDER = 'AI_PROVIDER';
+export const PROMPT_REPOSITORY = 'PROMPT_REPOSITORY';
