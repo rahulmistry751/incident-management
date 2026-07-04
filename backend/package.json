@@ -41,7 +41,7 @@
     "@types/node": "^20.14.9",
     "drizzle-kit": "^0.31.10",
     "tsx": "^4.16.0",
-    "typescript": "^5.5.2",
+    "typescript": "^6.0.3",
     "unplugin-swc": "^1.5.9",
     "vitest": "^1.6.0"
   }
