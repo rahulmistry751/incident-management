@@ -31,18 +31,6 @@ export class AiService {
       throw new DOMException('The user aborted a request.', 'AbortError');
     }
 
-    // Check if mock mode is active (due to lack of keys)
-    const isMockOpenai = providerType === 'openai' && (!this.config.openaiApiKey || this.config.openaiApiKey === 'your-openai-api-key-here' || this.config.openaiApiKey === 'mock-key');
-    const isMockGemini = providerType === 'gemini' && (!this.config.geminiApiKey || this.config.geminiApiKey === 'your-gemini-api-key-here' || this.config.geminiApiKey === 'mock-key');
-
-    if (isMockOpenai || isMockGemini) {
-      return {
-        summary: `Mock AI Analysis Summary: The incident "${title}" describes a problem that needs investigation.`,
-        recommendedSeverity: 'MEDIUM',
-        rootCause: 'Check API gateway configuration, backend logs, and network routing rules.',
-      };
-    }
-
     const systemInstruction = await this.promptRepo.getPrompt('incident_analysis_system');
     const userTemplate = await this.promptRepo.getPrompt('incident_analysis_user');
 
